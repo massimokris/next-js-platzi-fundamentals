@@ -25,6 +25,8 @@
 ## Prefetching
     Next.js automatically add preteching when you use Link component, making batter user experience for the end user and optimize your webapp
 
+## Debug Next.js
+    Enter to chrome://inspect and run "debug": "NODE_OPTIONS='--inspect' next"
 
 
 
