@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 // export const getServerSideProps = async (context) => {
 //   return {
@@ -8,26 +8,25 @@ import { useRouter } from 'next/router'
 // };
 
 const ProductItem = () => {
-    const { query: { id } } = useRouter() 
-    const [product, setProduct] = useState(null)
+  const {
+    query: { id },
+  } = useRouter();
+  const [product, setProduct] = useState(null);
 
-    useEffect(() => {
-        if (id) {
-            window
-            .fetch(`/api/avo/${id}`)
-            .then(res => res.json())
-            .then((data) => {
-                setProduct(data)
-            })
-        }
-        
-    }, [id])
-    
-    return (
-        <div>
-             {product == null ? null : <h1>Hola Producto! {product.name}</h1>}
-        </div>
-    )
-}
+  useEffect(() => {
+    if (id) {
+      window
+        .fetch(`/api/avo/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProduct(data);
+        });
+    }
+  }, [id]);
 
-export default ProductItem
+  return (
+    <div>{product == null ? null : <h1>Hola Producto! {product.name}</h1>}</div>
+  );
+};
+
+export default ProductItem;
