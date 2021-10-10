@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
+import Link from 'next/link'
+
 
 const Home = () => {
     const [productList, setProductList] = useState([])
@@ -15,13 +16,16 @@ const Home = () => {
 
     return (
         <div>
-            <Navbar/>
             <h1>Hola Massi!</h1>
             {productList.map((product) => (
-                <div>{product.name}</div>
+                <div>
+                    <Link href={`/product/${product.id}`}>
+                        <a>{product.name}</a>
+                    </Link>
+                </div>
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

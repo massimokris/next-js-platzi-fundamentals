@@ -13,7 +13,7 @@ const Navbar = () => {
                     </Link>
                 </menu>
             </nav>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
