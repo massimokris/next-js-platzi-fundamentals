@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+// export const getServerSideProps = async () => {
+//     const res = await fetch('http://localhost:3000/api/avo')
+//     const { data } = await res.json()
+//     return {
+//         props: {
+//             productList: data
+//         }
+//     }
+// }
 
-const Home = () => {
-    const [productList, setProductList] = useState([])
+export const getStaticProps = async () => {
+    const res = await fetch('http://localhost:3000/api/avo')
+    const { data } = await res.json()
+    return {
+        props: {
+            productList: data
+        }
+    }
+}
+
+
+const Home = ({ productList }) => {
 
     useEffect(() => {
-        window
-        .fetch('api/avo')
-        .then(res => res.json())
-        .then(({ data }) => {
-            setProductList(data)
-        })
+        
     }, [])
 
     return (
